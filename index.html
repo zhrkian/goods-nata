@@ -42985,6 +42985,49 @@
             document.getElementById('stats').textContent = 
                 `Показано записей: ${visibleCount} из ${totalRows}`;
         });
+        // Функциональность превью изображений при клике на строку
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.querySelector('.modal-close');
+
+        // Открытие модального окна при клике на строку таблицы
+        const rows = tableBody.getElementsByTagName('tr');
+        Array.from(rows).forEach(row => {
+            row.style.cursor = 'pointer';
+            row.addEventListener('click', function(e) {
+                const img = this.querySelector('img.product-image');
+                if (img) {
+                    modalImage.src = img.src;
+                    imageModal.classList.add('active');
+                }
+            });
+        });
+
+        // Закрытие модального окна при клике на кнопку закрытия
+        modalClose.addEventListener('click', function() {
+            imageModal.classList.remove('active');
+        });
+
+        // Закрытие модального окна при клике на фон
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('active');
+            }
+        });
+
+        // Закрытие модального окна при нажатии Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                imageModal.classList.remove('active');
+            }
+        });
+
     </script>
+    <!-- Модальное окно для превью изображений -->
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Product Preview">
+    </div>
+
 </body>
 </html>
