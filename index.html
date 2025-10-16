@@ -167,8 +167,8 @@
         }
 
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
+            width: 90%;
+            max-height: 90vh;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -234,8 +234,8 @@
             }
 
             .modal-content {
-                max-width: 95%;
-                max-height: 85%;
+                width: 90%;
+                max-height: 80vh;
             }
 
             .header {
@@ -42962,6 +42962,12 @@
         <div class="stats" id="stats">Всего записей: 4726</div>
     </div>
 
+    <!-- Модальное окно для превью изображений -->
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Product Preview">
+    </div>
+
     <script>
         const searchInput = document.getElementById('searchInput');
         const tableBody = document.getElementById('tableBody');
@@ -43023,11 +43029,6 @@
         });
 
     </script>
-    <!-- Модальное окно для превью изображений -->
-    <div id="imageModal" class="image-modal">
-        <span class="modal-close">&times;</span>
-        <img id="modalImage" class="modal-content" alt="Product Preview">
-    </div>
 
 </body>
 </html>
